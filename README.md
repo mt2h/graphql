@@ -18,4 +18,8 @@ npm run start
 
 npm i graphql-yoga@1.14.10
 npm run start
+
+http://localhost:4000
+
+npm install nodemon@1.17.5 --save-dev
 ```
