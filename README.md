@@ -15,4 +15,7 @@ node -v
 npm init
 npm install babel-cli@6.26.0 babel-preset-env@1.7.0
 npm run start
+
+npm i graphql-yoga@1.14.10
+npm run start
 ```

@@ -1,14 +1,38 @@
-//console.log('Hellow GrpahQL')
+import { GraphQLServer } from 'graphql-yoga'
 
-import myCurrentLocation, { message, name, getGreeting } from "./myModule";
-//import myCurrentLocation from "./myModule";
+// Type definitions (schema)
+const typeDefs = `
+    type Query {
+        hello: String!
+        name: String!
+        location: String!
+        bio: String!
+    }
+`
 
-console.log(message)
-console.log(name)
-console.log(myCurrentLocation)
-console.log(getGreeting('momo'))
+// Resolvers
+const resolvers = {
+    Query: {
+        hello() {
+            return 'This is my first query!'
+        },
+        name() {
+            return 'Andrew Mead'
+        },
+        location() {
+            return 'Philadelphia'
+        },
+        bio() {
+            return 'I live in Philly and teach on Udemy!'
+        }
+    }
+}
 
-import sum, { subtract } from "./math";
+const server = new GraphQLServer({
+    typeDefs,
+    resolvers
+})
 
-console.log(sum(5, 5))
-console.log(subtract(10, 5))
+server.start(() => {
+    console.log('The server is up!')
+})
