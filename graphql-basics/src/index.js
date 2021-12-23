@@ -19,13 +19,34 @@ import { GraphQLServer } from 'graphql-yoga'
     }
 `*/
 
-const typeDefs = `
+/*const typeDefs = `
     type Query {
         title: String!
         price: Float!
         releaseYear: Int
         rating: Float
         inStock: Boolean!
+    }
+`*/
+
+const typeDefs = `
+    type Query {
+        me: User!
+        post: Post!
+    }
+
+    type User {
+        id: ID!
+        name: String!
+        email: String!
+        age: Int
+    }
+
+    type Post {
+        id: ID!
+        title: String!
+        body: String!
+        published: Boolean!
     }
 `
 
@@ -67,7 +88,7 @@ const typeDefs = `
     }
 }*/
 
-const resolvers = {
+/*const resolvers = {
     Query: {
         title() {
             return "A title"
@@ -83,6 +104,28 @@ const resolvers = {
         },
         inStock() {
             return false
+        }
+    }
+}*/
+
+const resolvers = {
+    Query: {
+        me() {
+            return {
+                id: '123098',
+                name: 'Mike',
+                email: 'mike@example.com',
+                age: 28
+            }
+        },
+
+        post() {
+            return {
+                id: '092',
+                title: 'A title',
+                body: 'A body',
+                published: true
+            }
         }
     }
 }
