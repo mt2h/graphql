@@ -37,8 +37,12 @@ Operation Argument
 
 Custom Types
 
-![Operation Argument](./img/custom_types.png)
+![Custom Types](./img/custom_types.png)
 
-Operation qith arguments
+Operation with arguments
 
-![Operation Argument](./img/Operation_With_Arguments.png)
+![Operation with arguments](./img/Operation_With_Arguments.png)
+
+Array
+
+![Array](./img/array.png)
