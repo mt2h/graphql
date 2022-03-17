@@ -46,3 +46,11 @@ Operation with arguments
 Array
 
 ![Array](./img/array.png)
+
+Array with Type
+
+![Array with Type](./img/array_user.png)
+
+Array with Query
+
+![Array with Query](./img/array_user_query.png)
