@@ -54,3 +54,7 @@ Array with Type
 Array with Query
 
 ![Array with Query](./img/array_user_query.png)
+
+Relational
+
+![Relational](./img/Relational.png)
