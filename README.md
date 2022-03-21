@@ -57,4 +57,6 @@ Array with Query
 
 Relational
 
-![Relational](./img/Relational.png)
+![Relational 1](./img/Relational_1.png)
+
+![Relational 2](./img/Relational_2.png)
