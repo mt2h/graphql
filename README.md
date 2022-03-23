@@ -27,6 +27,11 @@ http://localhost:4000
 
 #for use app as service
 npm install nodemon@1.17.5 --save-dev
+
+npm start
+
+#for generate random data
+npm install uuid@3.3.2
 ```
 
 # Images
@@ -60,3 +65,7 @@ Relational
 ![Relational 1](./img/Relational_1.png)
 
 ![Relational 2](./img/Relational_2.png)
+
+Mutations
+
+![Mutation](./img/Mutation.png)
