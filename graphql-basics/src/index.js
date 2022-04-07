@@ -70,7 +70,9 @@ const typeDefs = `
     }
 
     type Mutation {
-        createUser(name: String!, email: String!, age: Int): User
+        createUser(name: String!, email: String!, age: Int): User!
+        createPost(title: String!, body: String!, published: Boolean!, author: ID!): Post!
+        createComment(text: String!, author: ID!, post: ID!): Comment!
     }
 
     type User {
@@ -151,7 +153,7 @@ const resolvers = {
             const emailTaken = users.some((user) => user.email === args.email)
 
             if(emailTaken){
-                throw new Error('Email taken.')
+                throw new Error('Email taken')
             }
 
             const user = {
@@ -164,6 +166,46 @@ const resolvers = {
             users.push(user)
 
             return user
+        },
+
+        createPost(parent, args, ctx, info) {
+            const userExists = users.some((user) => user.id === args.author)
+
+            if (!userExists) {
+                throw new Error('User not found')
+            }
+
+            const post = {
+                id: uuidv4(),
+                title: args.title,
+                body: args.body,
+                published: args.published,
+                author: args.author
+            }
+
+            posts.push(post)
+
+            return post
+        },
+
+        createComment(parent, args, ctx, info){
+            const userExists = users.some((user) => user.id === args.author)
+            const postExists = posts.some((post) => post.id === args.post && post.published)
+
+            if (!userExists || !postExists) {
+                throw new Error('Unable to find user and post')
+            }
+
+            const comment = {
+                id: uuidv4(),
+                text: args.text,
+                author: args.author,
+                post: args.post
+            }
+
+            comments.push(comment)
+
+            return comment
         }
     },
 
